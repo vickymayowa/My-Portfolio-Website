@@ -23,3 +23,5 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const database = getDatabase();
 const storage = getStorage()
+
+let Message = 0 
