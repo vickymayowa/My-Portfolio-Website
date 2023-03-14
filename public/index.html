@@ -48,6 +48,9 @@
             </div>
         </div>
     </nav>
+    <div class="progress-container">
+      <div class="progress-bar" id="myBar"></div>
+    </div>
      <!-- main banner -->
     <section id="hero" class="d-flex flex-column justify-content-center">
         <div class="container" data-aos="zoom-in" data-aos-delay="100">
@@ -350,10 +353,10 @@
     <div class="container-fluid">
         <!-- social media icons -->
         <div class="social-icons mt-4">
-            <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.facebook.com/Mayowa Favour" target="_blank"><i class="icofont-facebook"></i></a>
+            <a href="https://www.instagram.com/" target="_blank"><i class="icofont-instagram"></i></a>
+            <a href="https://www.twitter.com/" target="_blank"><i class="icofont-twitter"></i></a>
+            <a href="https://www.linkedin.com/in/adebanjo-favour-217b1a251/" target="_blank"><i class="icofont-linkedin"></i></a>
         </div>
     </div>
 </footer>
@@ -391,18 +394,19 @@ let Message = 0
 
 Contact.addEventListener("click",()=>{
     if(Username.value == "" || UserEmail.value == "" ||  UserSubject.value == "" || UserReason.value == ""){
-      document.querySelector(".second").addEventListener('click', function(){
         toastMixin.fire({
           title: 'FIll in the Required Blank Spaces below',
           icon: 'error'
-        });
       });
     } else{
+      let date = new Date()
       let UserMessage = {
         RecipentName : Username.value,
         RecipentEmail : UserEmail.value,
         RecipentSubject : UserSubject.value,
         RecipentMessage : UserReason.value,
+        document:write(dateStr),
+        time : date.toLocaleTimeString(),
       }
       Username.value=""
       UserEmail.value=""
@@ -421,6 +425,15 @@ Contact.addEventListener("click",()=>{
     }
 
 })
+      // Declare of Date //
+var d = new Date();
+     
+var date = d.getDate();
+var month = d.getMonth() + 1; // Since getMonth() returns month from 0-11 not 1-12
+var year = d.getFullYear();
+ 
+var dateStr = date + "/" + month + "/" + year;
+
 let DataMessage = ref(database,"Recieved Message")
 onValue(DataMessage,(snapshot)=>{
     let data = snapshot.val()
@@ -450,6 +463,16 @@ document.querySelector(".second").addEventListener('click', function(){
     title: 'Your Message Has been Sent'
   });
 });
+</script>
+<script>
+  window.onscroll = function() {myFunction()};
+
+function myFunction() {
+  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  var scrolled = (winScroll / height) * 100;
+  document.getElementById("myBar").style.width = scrolled + "%";
+}
 </script>
 </body>
 </html>
