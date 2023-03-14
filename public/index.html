@@ -363,8 +363,7 @@
     new PureCounter();
 </script>
 <script src="main.js"></script>
-<script src="sweetalert2.all.min.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
 <script type="module">
     // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
@@ -391,10 +390,10 @@ const database = getDatabase()
 let Message = 0 
 
 Contact.addEventListener("click",()=>{
-    if(Username.value == ""|| UserEmail.value == "" ||  UserSubject.value == "" || UserReason.value == ""){
-      document.querySelector(".third").addEventListener('click', function(){
+    if(Username.value == "" || UserEmail.value == "" ||  UserSubject.value == "" || UserReason.value == ""){
+      document.querySelector(".second").addEventListener('click', function(){
         toastMixin.fire({
-          title: 'FIll in the ',
+          title: 'FIll in the Required Blank Spaces below',
           icon: 'error'
         });
       });
@@ -405,8 +404,18 @@ Contact.addEventListener("click",()=>{
         RecipentSubject : UserSubject.value,
         RecipentMessage : UserReason.value,
       }
+      Username.value=""
+      UserEmail.value=""
+      UserSubject.value=""
+      UserReason.value=""
       let MessageRef = ref(database,`Recieved Message/${Message}`)
       set(MessageRef,UserMessage)
+      document.querySelector(".second").addEventListener('click', function(){
+        toastMixin.fire({
+          animation: true,
+          title: 'Your Message Has been Sent'
+        });
+      });
       //console.log(UserMessage)
       //console.log("message sent")    
     }
