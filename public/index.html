@@ -387,28 +387,29 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const database = getDatabase()
-const storage = getStorage();
 
-let MessageRef = 0 
+let Message = 0 
 
 Contact.addEventListener("click",()=>{
+    alert("Trying to activate code")
   let UserMessage = {
     RecipentName : Username.value,
     RecipentEmail : UserEmail.value,
     RecipentSubject : UserSubject.value,
     RecipentMessage : UserReason.value,
   }
+  let MessageRef = ref(database,`Recieved Message/${Message}`)
   set(MessageRef,UserMessage)
-  console.log()
-  let MessageRef = ref(database,`Recieved Message/${MessageRef}`)
+  console.log(UserMessage)
+  console.log("message sent")
 })
 let DataMessage = ref(database,"Recieved Message")
 onValue(DataMessage,(snapshot)=>{
     let data = snapshot.val()
     if(data){
-      MessageRef = data.length
+      Message = data.length
     }else{
-      MessageRef = 0
+      Message = 0
     }
 })
 </script>
