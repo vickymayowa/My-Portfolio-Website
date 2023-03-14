@@ -21,7 +21,28 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const database = getDatabase();
-const storage = getStorage()
+const database = getDatabase()
+const storage = getStorage();
 
-let Message = 0 
+let MessageRef = 0 
+
+Contact.addEventListener("click",()=>{
+  let UserMessage = {
+    RecipentName : Username.value,
+    RecipentEmail : UserEmail.value,
+    RecipentSubject : UserSubject.value,
+    RecipentMessage : UserReason.value,
+  }
+  set(MessageRef,UserMessage)
+  console.log()
+  let MessageRef = ref(database,`Recieved Message/${MessageRef}`)
+})
+let DataMessage = ref(database,"Recieved Message")
+onValue(DataMessage,(snapshot)=>{
+    let data = snapshot.val()
+    if(data){
+      MessageRef = data.length
+    }else{
+      MessageRef = 0
+    }
+})
