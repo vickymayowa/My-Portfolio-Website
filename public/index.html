@@ -336,7 +336,7 @@
                     <h6 class="fs-5 fw-normal  mt-3" style="font-family: sans-serif;">Message</h6>
                     <textarea name="" id="UserReason" cols="40" class="form-control  form-control-lg m-2" rows="10" ></textarea>
                 </form>
-                <button type="button" class="btn btn-info" id="Contact">Send Message</button>
+                <button type="button" class=" col-lg-12 col-sm-12 second btn btn-info" id="Contact">Send Message</button>
                 <h5 class="fw-lighter fs-5" id="disp"></h5>
             </div>
     </div>
@@ -363,12 +363,12 @@
     new PureCounter();
 </script>
 <script src="main.js"></script>
+<script src="sweetalert2.all.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="module">
     // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
 import { getDatabase,ref,set,onValue} from "https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js";
-
-
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -391,17 +391,26 @@ const database = getDatabase()
 let Message = 0 
 
 Contact.addEventListener("click",()=>{
-    alert("Trying to activate code")
-  let UserMessage = {
-    RecipentName : Username.value,
-    RecipentEmail : UserEmail.value,
-    RecipentSubject : UserSubject.value,
-    RecipentMessage : UserReason.value,
-  }
-  let MessageRef = ref(database,`Recieved Message/${Message}`)
-  set(MessageRef,UserMessage)
-  console.log(UserMessage)
-  console.log("message sent")
+    if(Username.value == ""|| UserEmail.value == "" ||  UserSubject.value == "" || UserReason.value == ""){
+      document.querySelector(".third").addEventListener('click', function(){
+        toastMixin.fire({
+          title: 'FIll in the ',
+          icon: 'error'
+        });
+      });
+    } else{
+      let UserMessage = {
+        RecipentName : Username.value,
+        RecipentEmail : UserEmail.value,
+        RecipentSubject : UserSubject.value,
+        RecipentMessage : UserReason.value,
+      }
+      let MessageRef = ref(database,`Recieved Message/${Message}`)
+      set(MessageRef,UserMessage)
+      //console.log(UserMessage)
+      //console.log("message sent")    
+    }
+
 })
 let DataMessage = ref(database,"Recieved Message")
 onValue(DataMessage,(snapshot)=>{
@@ -412,6 +421,26 @@ onValue(DataMessage,(snapshot)=>{
       Message = 0
     }
 })
+var toastMixin = Swal.mixin({
+  toast: true,
+  icon: 'success',
+  title: 'General Title',
+  animation: false,
+  position: 'top-right',
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+});
+document.querySelector(".second").addEventListener('click', function(){
+  toastMixin.fire({
+    animation: true,
+    title: 'Your Message Has been Sent'
+  });
+});
 </script>
 </body>
 </html>
