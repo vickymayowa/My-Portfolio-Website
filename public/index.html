@@ -399,14 +399,20 @@ Contact.addEventListener("click",()=>{
           icon: 'error'
       });
     } else{
-      let date = new Date()
+            // Declare of Date //
+  let today = new Date();
+  let month = today.getMonth() + 1;
+  let year = today.getFullYear(); 
+  let date = today.getDate();
+  
+  let current_date = `${month}/${date}/${year}`;
       let UserMessage = {
         RecipentName : Username.value,
         RecipentEmail : UserEmail.value,
         RecipentSubject : UserSubject.value,
         RecipentMessage : UserReason.value,
-        document.write(dateStr),
         time : date.toLocaleTimeString(),
+        UserDate : current_date,
       }
       Username.value=""
       UserEmail.value=""
@@ -423,15 +429,7 @@ Contact.addEventListener("click",()=>{
       //console.log(UserMessage)
       //console.log("message sent")    
     }
-
 })
-      // Declare of Date //
-var d = new Date();
-var date = d.getDate();
-var month = d.getMonth() + 1; // Since getMonth() returns month from 0-11 not 1-12
-var year = d.getFullYear();
-var dateStr = date + "/" + month + "/" + year;
-
 let DataMessage = ref(database,"Recieved Message")
 onValue(DataMessage,(snapshot)=>{
     let data = snapshot.val()
@@ -461,6 +459,43 @@ document.querySelector(".second").addEventListener('click', function(){
     title: 'Your Message Has been Sent'
   });
 });
+console.log(navigator.onLine)
+
+window.addEventListener("online", function() {
+  console.log("Back Online")
+  Swal.fire({
+    toast: true,
+    icon: 'success',
+    title: 'Internet Restored',
+    animation: false,
+    position: 'bottom',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
+})
+
+window.addEventListener("offline", function() {
+  console.log("Disconnected...so sad!!!")
+  Swal.fire({
+    toast: true,
+    icon: 'error',
+    title: 'You Are Offline',
+    animation: false,
+    position: 'bottom',
+    showConfirmButton: false,
+    timer: 10000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
+})
 </script>
 <script>
   window.onscroll = function() {myFunction()};
