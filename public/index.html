@@ -8,15 +8,31 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- <link rel="stylesheet" href="myProjects/webProject/icofont/css/icofont.min.css"> -->
     <link rel="stylesheet" href="./icofont/icofont.min.css">
+     <!-- lineicons cdn  -->
+     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />   
+    <!-- Boxiicons link -->
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <!-- Bootstarp cdn link  -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    <!-- style css link  -->
     <link rel="stylesheet" href="style.css">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"> -->
     
     <title>Vicky Portfolio Website</title>
 </head>
 <body>
+  <div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+ </div>
     <nav class="navbar navbar-expand-lg fixed-top bg-dark ">
         <div class="container">
             <a class="navbar-brand px-5" href="index.html">Vicky.</a>
@@ -65,13 +81,19 @@
           </div>
         </div>
       </section>
+      <div class="home-info padd-15">
+        <h3 class="hello">Hello, my name is <span class="name">Adebanjo Favour MAyowa<span></h3>
+        <h3 class="my-profession">I'm a <span class="typing">Web Developer</span></h3>
+        <p>I'm a Web Developer with extensive experience for over ^ Months. My expertise is to create and website design,graphic design, and many more...</p>
+        <a href="#contact" class="btn hire-me"><b>Hire Me!!!</b></a>
+    </div>
     <!-- About Section -->
     <section id="about" class="about fw-lighter px-5 text-center" style="font-family: sans-serif;">
         <div class="container" data-aos="fade-up">
       
           <div class="section-title fw-ligther">
             <h2>About</h2>
-            <h3>My name Is Adebanjo  Favour Mayowa, I'm Web Developer, <br> I'm 17yrs old with interesting frontend skills. 
+            <h3>My name Is Adebanjo  Favour Mayowa, I'm Web Developer, <br> I Have a lot of interesting frontend skills. 
         <br>
        I'm fluent with several frontend skills like HTML, CSS, JavaScript and Bootstrap-5.I'm also 
        proficient in using including Api integration, Github and Firebase .
@@ -166,7 +188,7 @@
         <div class="container">
             <h1 class="text-center">Services</h1>
             <div class="row">
-                <div class="col-lg-4 mt-4">
+                <div class="col-lg-4 mt-4 animate__animated  animate__backInUp">
                     <div class="card servicesText">
                         <div class="card-body">
                             <i class="fas servicesIcon fa-clock"></i>
@@ -177,7 +199,7 @@
                         </div>
                     </div>  
                 </div>
-                <div class="col-lg-4 mt-4">
+                <div class="col-lg-4 mt-4  animate__animated  animate__backInUp">
                     <div class="card servicesText">
                         <div class="card-body">
                             <i class='fas servicesIcon fa-layer-group'></i>
@@ -189,7 +211,7 @@
                     </div>  
                 </div>
 
-                <div class="col-lg-4 mt-4">
+                <div class="col-lg-4 mt-4  animate__animated  animate__backInUp">
                     <div class="card servicesText">
                         <div class="card-body">
                             <i class='far servicesIcon fa-check-circle'></i>
@@ -326,40 +348,88 @@
               </div>
   
             </div>
+        </div>
+        <section id="contact">
   
-            <div class="col-lg-7  shadow">
-  
-                <form class="px-3">
-                    <h6 class="fs-5 fw-normal  mt-3" style="font-family: sans-serif;">Name</h6>
-                    <input type="text" class="form-control form-control-lg" placeholder=" Enter your Name" id="Username">
-                    <h6 class="fs-5 fw-normal  mt-2" style="font-family: sans-serif;">Email</h6>
-                    <input type="email" class="form-control  form-control-lg mt-3" placeholder=" Enter your Email" id="UserEmail">
-                    <h6 class="fs-5 fw-normal  mt-2" style="font-family: sans-serif;">Subject</h6>
-                    <input type="text" class="form-control  form-control-lg mt-3" placeholder=" Enter your Subject" id="UserSubject">
-                    <h6 class="fs-5 fw-normal  mt-3" style="font-family: sans-serif;">Message</h6>
-                    <textarea name="" id="UserReason" cols="40" class="form-control  form-control-lg m-2" rows="10" ></textarea>
-                </form>
-                <button type="button" class=" col-lg-12 col-sm-12 second btn btn-info" id="Contact">Send Message</button>
-                <h5 class="fw-lighter fs-5" id="disp"></h5>
-            </div>
-    </div>
-  
+          <h1 class="section-header">Contact</h1>
+          
+          <div class="contact-wrapper">
+          
+          <!-- Left contact page --> 
+            
+            <form id="contact-form" class="form-horizontal" role="form">
+               
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="text" class="form-control" id="Username" placeholder="NAME" name="name" value="" required>
+                </div>
+              </div>
+        
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="email" class="form-control" id="UserEmail" placeholder="EMAIL" name="email" value="" required>
+                </div>
+              </div>
+               <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="email" class="form-control" id="UserSubject" placeholder="Subject" name="email" value="" required>
+                </div>
+              </div>
+        
+              <textarea class="form-control" rows="10" placeholder="MESSAGE" name="message" required id="UserReason"></textarea>
+              
+              <button class="btn btn-primary send-button" id="submit" type="submit" value="SEND">
+                <div class="alt-send-button">
+                  <i class="fa fa-paper-plane"></i><span class="send-text">SEND</span>
+                </div>
+              
+              </button>
+              
+            </form>
+            
+          <!-- Left contact page --> 
+            
+              <div class="direct-contact-container">
+        
+                <ul class="contact-list">
+                  <li class="list-item"><i class="fa fa-map-marker fa-2x"><span class="contact-text place">Ogbomoso, Oyo State</span></i></li>
+                  
+                  <li class="list-item"><i class="fa fa-phone fa-2x"><span class="contact-text phone"><a href="tel:1-212-555-5555" title="Give me a call">+234 916 763 8933</a></span></i></li>
+                  
+                  <li class="list-item"><i class="fa fa-envelope fa-2x"><span class="contact-text gmail"><a href="mailto:#" title="Send me an email">favouradebanjo603@gmail.com</a></span></i></li>
+                  
+                </ul>
+        
+                <hr>
+                <ul class="social-media-list">
+                  <li>
+                    <a href="https://github.com/vickymayowa" target="_blank" class="contact-icon">
+                    <i class="fa fa-github" aria-hidden="true"></i></a>
+                  </li>
+                  <li>
+                    <a href="#0" target="_blank" class="contact-icon">
+                    <i class="fa fa-instagram" aria-hidden="true"></i></a>
+                  </li>
+                  <li>
+                    <a href="https://wa.me/+2349167638933" target="_blank" class="contact-icon">
+                    <i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+                  </li>
+                  <li>
+                    <a href="https://www.linkedin.com/in/adebanjo-favour-217b1a251/" target="_blank" class="contact-icon">
+                    <i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                  </li>
+                </ul>
+                <hr>
+        
+                <div class="copyright">&copy; ALL OF THE RIGHTS RESERVED</div>
+        
+              </div>
+            
           </div>
-  
-        </div>
- <!-- footer section-->
- <footer id="footer">
-    
-    <div class="container-fluid">
-        <!-- social media icons -->
-        <div class="social-icons mt-4">
-            <a href="https://www.facebook.com/Mayowa Favour" target="_blank"><i class="icofont-facebook"></i></a>
-            <a href="https://www.instagram.com/" target="_blank"><i class="icofont-instagram"></i></a>
-            <a href="https://www.twitter.com/" target="_blank"><i class="icofont-twitter"></i></a>
-            <a href="https://www.linkedin.com/in/adebanjo-favour-217b1a251/" target="_blank"><i class="icofont-linkedin"></i></a>
-        </div>
-    </div>
-</footer>
+          
+        </section>  
+          
+          
 <div class="text-normal fw-lighter text-center">Design and Developed by Vicky</div>
 <script src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs/dist/purecounter_vanilla.js"></script>
 <script>
@@ -390,8 +460,13 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const database = getDatabase()
 
-let Message = 0 
-
+            let Message = 0 
+            // Declare of Date //
+            let today = new Date();
+            let month = today.getMonth() + 1;
+            let year = today.getFullYear(); 
+            let date = today.getDate();
+            let current_date = `${month}/${date}/${year}`;
 Contact.addEventListener("click",()=>{
     if(Username.value == "" || UserEmail.value == "" ||  UserSubject.value == "" || UserReason.value == ""){
         toastMixin.fire({
@@ -399,20 +474,18 @@ Contact.addEventListener("click",()=>{
           icon: 'error'
       });
     } else{
-            // Declare of Date //
-  let today = new Date();
-  let month = today.getMonth() + 1;
-  let year = today.getFullYear(); 
-  let date = today.getDate();
-  
-  let current_date = `${month}/${date}/${year}`;
+    let today = new Date();
+    let month = today.getMonth() + 1;
+    let year = today.getFullYear(); 
+    let date = today.getDate();
+    let current_date = `${month}/${date}/${year}`;
       let UserMessage = {
         RecipentName : Username.value,
         RecipentEmail : UserEmail.value,
         RecipentSubject : UserSubject.value,
         RecipentMessage : UserReason.value,
+        RecipentDate : current_date,
         time : date.toLocaleTimeString(),
-        UserDate : current_date,
       }
       Username.value=""
       UserEmail.value=""
@@ -507,5 +580,6 @@ function myFunction() {
   document.getElementById("myBar").style.width = scrolled + "%";
 }
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js" referrerpolicy="no-referrer"></script>
 </body>
 </html>
