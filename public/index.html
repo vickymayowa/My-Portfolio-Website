@@ -667,31 +667,31 @@
 		<div class="section-contact">
 			<div class="row justify-content-center">
 				<div class="col-12 col-lg-10 col-xl-8">
-					<div class="header-section text-center text-white">
-							<span class="big-title text-dark">CONTACT</span>
+					<div class="header-section text-center text-dark">
+							<span class="big-title mb-5">CONTACT</span>
 						</h2>
 					</div>
 				</div>
 			</div>
 			<div class="form-contact mt-5">
-				<form class="mt-5">
+				<form>
 					<div class="row mt-5">
-						<div class="col-md-6 mt-5">
+						<div class="col-md-6">
 							<div class="single-input">
 								<i class="fas fa-user"></i>
-								<input type="text"  placeholder="ENTER YOUR NAME" id="Username">
+								<input type="text"  placeholder="ENTER YOUR NAME" id="Username" class="form control px-5 mx-auto">
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="single-input">
 								<i class="fas fa-envelope"></i>
-								<input type="email"  placeholder="ENTER YOUR EMAIL" id="UserEmail">
+								<input type="email"  placeholder="ENTER YOUR EMAIL" id="UserEmail" class="form control px-5 mx-auto">
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="single-input">
 								<i class="fas fa-phone"></i>
-								<input type="number" placeholder="ENTER YOUR PHONE NUMBER" id="UserPhoneNumber">
+								<input type="number" placeholder="ENTER YOUR PHONE NUMBER" id="UserPhoneNumber" class="form control px-5 mx-auto">
 							</div>
 						</div>
 						<div class="col-md-6">
@@ -706,13 +706,36 @@
 								<textarea placeholder="ENTER YOUR MESSAGE" id="UserReason"></textarea>
 							</div>
 						</div>
-						<div class="col-lg-12 col-sm-12 px-5 mx-auto">
-              <button class="btn btn-primary send-button" id="Contact" 
-                <span class="send-text">SEND MESSAGE</span></button>
+              <div class="col-12">
+                <div class="submit-input text-center">
+                  <input type="submit" name="submit" value="SEND MESSAGE" style="font-family: sans-serif;" id="Contact">
+                </div>
               </div>
 						</div>
 					</div>
 				</form>
+        <ul class="social-media-list">
+          <li>
+            <a href="https://github.com/vickymayowa" class="contact-icon">
+            <i class="fa fa-github" aria-hidden="true"></i></a>
+          </li>
+          <li>
+            <a href="#" target="_blank" class="contact-icon">
+            <i class="fa fa-instagram" aria-hidden="true"></i></a>
+          </li>
+          <li>
+            <a href="https://wa.me/+2349167638933" target="_blank" class="contact-icon">
+            <i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/adebanjo-favour-217b1a251/" target="_blank" class="contact-icon">
+            <i class="fa fa-linkedin" aria-hidden="true"></i></a>
+          </li>
+          <li>
+            <a href="https://twitter.com/dev_mayowa" target="_blank" class="contact-icon">
+            <i class="fa fa-twitter" aria-hidden="true"></i></a>
+          </li>
+        </ul>
 			</div>
 		</div>
 	</div>
@@ -722,48 +745,7 @@
 </html>
             <!-- end of new contact form  -->
 
-          <!-- Left contact page --> 
-            
-              <div class="direct-contact-container">
-        
-                <ul class="contact-list">
-                  <li class="list-item"><i class="fa fa-map-marker fa-2x"><span class="contact-text place">Nigeria</i></li>
-                  
-                  <li class="list-item"><i class="fa fa-phone fa-2x"><span class="contact-text phone"><a href="tel:1-212-555-5555" title="Give me a call">+234 916 763 8933</a></span></i></li>
-                  
-                  <li class="list-item"><i class="fa fa-envelope fa-2x"><span class="contact-text gmail"><a href="mailto:#" title="Send me an email">favouradebanjo603@gmail.com</a></span></i></li>
-                  
-                </ul>
-        
-                <hr>
-                <ul class="social-media-list">
-                  <li>
-                    <a href="https://github.com/vickymayowa" class="contact-icon">
-                    <i class="fa fa-github" aria-hidden="true"></i></a>
-                  </li>
-                  <li>
-                    <a href="#" target="_blank" class="contact-icon">
-                    <i class="fa fa-instagram" aria-hidden="true"></i></a>
-                  </li>
-                  <li>
-                    <a href="https://wa.me/+2349167638933" target="_blank" class="contact-icon">
-                    <i class="fa fa-whatsapp" aria-hidden="true"></i></a>
-                  </li>
-                  <li>
-                    <a href="https://www.linkedin.com/in/adebanjo-favour-217b1a251/" target="_blank" class="contact-icon">
-                    <i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                  </li>
-                  <li>
-                    <a href="https://twitter.com/dev_mayowa" target="_blank" class="contact-icon">
-                    <i class="fa fa-twitter" aria-hidden="true"></i></a>
-                  </li>
-                </ul>
-                <hr>
-        
-                <div class="copyright">&copy; ALL OF THE RIGHTS RESERVED</div>
-        
-              </div>
-            
+          <!-- Left contact page -->        
           </div>
           
         </section>  
@@ -813,7 +795,7 @@ const database = getDatabase()
     let Message = 0 
     // Declare of Date //
 Contact.addEventListener("click",()=>{
-    if(Username.value == "" || UserEmail.value == "" ||  UserSubject.value == "" || UserReason.value == ""){
+    if(Username.value == "" || UserEmail.value == "" ||  UserSubject.value == "" || UserReason.value == "" || UserPhoneNumber.value == ""){
         alert("Fiil in the black spaces to be able to send your message")
     } else{
     let today = new Date();
